@@ -5,6 +5,7 @@ function converterValores() {
     const inputMoedaValor = document.querySelector('.input-moeda').value
     const dolarDoDia = 5.2
     const euroDoDia = 6.2
+    const libraDoDia = 7.3
     const converterValorConvertido = document.querySelector('.moeda-valor-convertida')
     const converterValor = document.querySelector('.moeda-valor')
 
@@ -16,6 +17,13 @@ function converterValores() {
         style: 'currency',
         currency: "USD"
     }).format(inputMoedaValor / dolarDoDia)
+    }
+
+        if (selectConversor.value == "libra") {
+        converterValor.innerHTML =  new Intl.NumberFormat("GPB", {
+        style: 'currency',
+        currency: "GPB"
+    }).format(inputMoedaValor / libraDoDia)
     }
 
     if (selectConversor.value == "euro") {
@@ -45,6 +53,11 @@ function changeConversor(){
     if ( selectConversor.value == 'euro') {
         conversorMoeda.innerHTML = 'Euro'
         conversorImg.src = './assets/euro.png'
+    }
+
+     if ( selectConversor.value == 'libra') {
+        conversorMoeda.innerHTML = 'Libra'
+        conversorImg.src = './assets/libra.png'
     }
 
     converterValores()
